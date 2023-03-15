@@ -1,33 +1,28 @@
-const passport = require('passport');
-const User = require('../models/User');
+const passport = require("passport");
+const User = require("../models/User");
 
+const JwtStrategy = require("passport-jwt").Strategy;
+const ExtractJwt = require("passport-jwt").ExtractJwt;
 
-
-const JwtStrategy = require('passport-jwt').Strategy;
-const ExtractJwt = require('passport-jwt').ExtractJwt;
-
-
-const opts={
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.SecretOrKey,
-
-
-}
+const opts = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.SecretOrKey,
+};
 passport.use(
-    new JwtStrategy(opts, async(jwt_payload, done) => {
+  new JwtStrategy(opts, async (jwt_payload, done) => {
     try {
-        const user = await User.findOne({_id: jwt_payload._id}).select('-password');
+      const user = await User.findOne({ _id: jwt_payload._id }).select(
+        "-password"
+      );
 
-        user? done(null, user) : done(null, false);
-        
-
-
-
+      user ? done(null, user) : done(null, false);
+      //req.user houwa client connecté tawa 
+        // req.user = user;
     } catch (error) {
-        console.log(error)
-        
+      console.log(error);
     }
-}))
+  })
+);
 
-module.exports=isAuth=()=>
-passport.authenticate("jwt",{session:false});
+module.exports = isAuth = () =>
+  passport.authenticate("jwt", { session: false });

@@ -1,0 +1,54 @@
+.Add-Trajet{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 100px;
+    width: 100vw;
+    height: 120vh;
+    background-color: red;
+}
+
+
+.Trajet{
+    
+background-color: aqua;
+height: 3cm;
+width: 100vw;
+}
+.input-trajet{
+   display: flex; 
+}
+
+
+
+.date{
+background-color: blue;
+height: 5cm;
+width: 100vw;
+}
+
+
+.date label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+.date input,
+label {
+    margin: 0.4rem 0;
+}
+
+
+
+.Condition{
+background-color: yellowgreen;
+height: 3cm;
+width: 100vw;
+}
+
+
+.maplist{
+    background-color: khaki;
+height: 6cm;
+width: 100vw;
+}

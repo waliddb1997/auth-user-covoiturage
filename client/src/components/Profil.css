@@ -1,0 +1,85 @@
+.section-prfile{
+    margin-top: 100px;
+    width: 90vw;
+    margin-left: 65px;
+    height: 100vh;
+    /* background-color: red; */
+    
+    /* justify-content: space-between; */
+}
+.container-profil{
+    margin-top: 100px;
+    width: 80vw;
+    /* margin-left: 65px; */
+    margin: auto;
+    height: 100vh;
+    /* background-color: rgb(17, 16, 16); */
+    display: flex;
+    gap: 50px;
+    /* align-items: center;: */
+    border: 2px solid #ddd;
+}
+
+
+.profil-user{
+    width: 70vw;
+    /* background-color: aqua; */
+}
+
+
+
+.profil-voiture{
+
+    height: 6cm;
+
+    width: 20vw;
+    /* background-color: blue; */
+    border: 1px solid #ddd;
+}
+
+
+.name-user li{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    /* justify-content: center; */
+    list-style-type: none;
+    font-size: 17px !important;
+    margin-bottom: 18px;
+}
+
+.name-user li h3{
+    color: gray;
+    margin-top: 23px;
+}
+
+
+
+.modif-prof{
+    
+    font-size: 25px;
+    padding-left: 15cm;
+}
+
+
+.modif-prof button #modif{
+    /* background-color: red;  */
+    color: black;
+        transition-duration: 0.4s;
+      
+    /* background-color: red; */
+}
+
+.modif-prof button:hover {
+    
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+
+
+  .maplist{
+    background-color: khaki;
+height: 6cm;
+width: 59vw;
+}

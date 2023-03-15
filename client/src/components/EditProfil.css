@@ -1,0 +1,57 @@
+.edit-prof {
+    margin-top: 100px;
+    width: 100vw;
+    height: 120vh;
+    /* background-color: red; */
+
+}
+
+.edit{
+    display: flex;
+    gap: 70px;
+    margin: auto;
+    width: 90vw;
+    height: 100vh;
+    /* background-color: aqua; */
+    padding: 10px;
+}
+
+.iput-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    /* background-color: blue; */
+    padding: 10px;
+}
+.iput-left input{
+    
+    height: 60px;
+    width: 10cm;
+    /* background-color: rgb(25, 202, 70); */
+}
+.iput-left h3{
+    font-size: 20px;
+    /* border: 1px solid #444; */
+}
+
+.iput-raght{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    /* background-color: brown; */
+    padding: 10px;
+}
+
+.iput-raght input{
+    height: 60px;
+    width: 10cm;
+    /* background-color: rgb(223, 19, 97); */
+}
+
+
+.iput-raght h3{
+    font-size: 20px;
+    /* border: 1px solid #444; */
+}
