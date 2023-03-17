@@ -1,19 +1,40 @@
 .Add-Trajet{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 
-    margin-top: 100px;
+    margin-top: 87px;
     width: 100vw;
     height: 120vh;
-    background-color: red;
+    /* background-color: red; */
+}
+
+.Add-Trajet #imr{
+    margin-top: -25px;
+    mix-blend-mode: darken;
+    width: 53vw;
+    height: 90vh;
+    object-fit: cover;
+    
+    
+}
+
+
+
+.container-trajet{
+    display: flex;
+    width: 46vw;
+    height: 90vh;
+    /* background-color: blueviolet; */
+    flex-direction: column;
+    margin-top: 60px;
 }
 
 
 .Trajet{
-    
-background-color: aqua;
-height: 3cm;
-width: 100vw;
+    margin-top: 3px;
+/* background-color: aqua; */
+/* height: 3cm; */
+width: 46vw;
 }
 .input-trajet{
    display: flex; 
@@ -22,9 +43,9 @@ width: 100vw;
 
 
 .date{
-background-color: blue;
-height: 5cm;
-width: 100vw;
+/* background-color: blue; */
+/* height: 5cm; */
+width: 46vw;
 }
 
 
@@ -41,14 +62,50 @@ label {
 
 
 .Condition{
-background-color: yellowgreen;
-height: 3cm;
-width: 100vw;
+/* background-color: yellowgreen; */
+/* height: 3cm; */
+width: 46vw;
 }
 
 
 .maplist{
-    background-color: khaki;
-height: 6cm;
-width: 100vw;
+    /* background-color: khaki; */
+/* height: 6cm; */
+width: 46vw;
 }
+
+
+.Add-Trajet button {
+    /* width: 50px; */
+    width: 3cm;
+    margin-left: 7cm;
+}
+
+
+
+.container-trajet input {
+    width: 15vw;
+    height: 7vh;
+    border-radius: 5px;
+}
+
+.container-trajet form select{
+    width: 20vw;
+    height: 7vh;
+    border-radius: 5px;
+}
+
+
+.container-trajet button {
+    padding: 5px 8px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: #2bc48a;
+    transition: all 0.8s;
+  }
+  
+  .container-trajet button:hover {
+      border-color: #2bc48a;
+      color: #000;
+      background-color: #fff;
+  } 

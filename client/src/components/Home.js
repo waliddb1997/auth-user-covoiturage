@@ -1,11 +1,12 @@
 import React, { useState, useRef } from "react";
 import "../components/Home.css";
-import { DateInput, minValue } from "react-admin";
-import Navbar from "./Navbar";
-import { useDispatch } from "react-redux";
-import { getallTrajet, getTrajet } from "../JS/userSlice/TrajetSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getallTrajet } from "../JS/userSlice/TrajetSlice";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import Recherche from "./Recherche";
 
 const Home = () => {
+  const navigate = useNavigate(); 
   const dispatch = useDispatch();
   const [filterObject, setfilterObject] = useState({});
   const dateInputRef = useRef(null);
@@ -13,6 +14,7 @@ const Home = () => {
   const handleChangeFilter = (e) => {
     setfilterObject({ ...filterObject, [e.target.name]: e.target.value });
   };
+
 
   // const [value, onChange] = useState(new Date());
   return (
@@ -27,6 +29,8 @@ const Home = () => {
         </div>
         <div action="" id="myform">
           <div action="">
+            
+     
             <select name="lieuDepart" onChange={handleChangeFilter}>
               <option value="">Lieu Depart-- </option>
               <option value="Ariana">Ariana </option>
@@ -93,9 +97,18 @@ const Home = () => {
             ref={dateInputRef}
           />
 
-          <button onClick={() => dispatch(getallTrajet(filterObject))}>GO</button>
+         <Link to="/recherche"><button onClick={() => {dispatch(getallTrajet(filterObject))
+           
+          }}>GO</button></Link> 
+
+
         </div>
+        {/* <section className="section-houme ">
+          <Outlet filterObject={filterObject} setfilterObject={setfilterObject}/>
+          <Recherche filterObject={filterObject} setfilterObject={setfilterObject}/>
+        </section> */}
       </div>
+    
     </>
   );
 };

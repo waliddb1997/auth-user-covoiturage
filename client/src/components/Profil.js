@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { logout, userCurrent } from "../JS/userSlice/UserSlice";
 import "../components/Profil.css";
-import ListeTrajet from "./trajet/ListeTrajet";
 import { getTrajet } from "../JS/userSlice/TrajetSlice";
 
 const Profil = ({ping,setping}) => {
+
+  const [pingList, setPingList] = useState()
   const user = useSelector((state) => state.user?.user);
   const trajets = useSelector((state) => state.trajet?.trajet);
   const navigate = useNavigate();
@@ -24,10 +24,12 @@ const Profil = ({ping,setping}) => {
               </h4>
 
               <li>
-                <span>Couleur:</span> {user?.colorVoiture}
+              Couleur: <span>{user?.colorVoiture} </span>
+                
               </li>
               <li>
-                <span>Climatiseur:</span> {user?.Climatiseur}
+              Climatiseur: <span>{user?.Climatiseur} </span>
+                
               </li>
             </div>
           </div>
@@ -46,44 +48,44 @@ const Profil = ({ping,setping}) => {
                   Profession : <span>{user?.Profession} </span>
                 </li>
                 <li>
-                  <span>Mes préférences :</span>
-                  {user?.tabac}
+                Mes préférences : <span>{user?.tabac} </span>
+                  
                 </li>
               </ul>
             </div>
 
             <div className="modif-prof">
-              <button>
-                <Link
-                  id="modif"
+              <button
+                
+                  
                   onClick={() => {
                     navigate("/EditPrfil");
                   }}
                   to="/EditPrfil"
                 >
                   complete my profile
-                </Link>
+                
               </button>
-              <button>
-                <Link
-                  id="modif"
+
+              {user && user?.Role == "user" ? (
+              <button
+                
+                  
                   onClick={() => {
-                    dispatch(getTrajet());
+                    dispatch(getTrajet())
+                    setPingList(!pingList)
+
                     navigate("/ListeTrajet");
                   }}
                   to="/ListeTrajet"
                 >
                   All votre Trajet
-                </Link>
+                
               </button>
+               ) : null}
             </div>
           </div>
-          {/* <div className="maplist">
-            {trajets?.map((trajet) => (
-              <ListeTrajet D={trajet} />
-            ))}
-            <Outlet />
-          </div> */}
+          
         </div>
       </div>
     </section>

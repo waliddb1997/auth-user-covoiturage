@@ -32,7 +32,6 @@ router.delete("/deleteuser", async (req, res) => {
 router.get("/alluser", async (req, res) => {
   try {
     let result = await User.find();
-    console.log(result);
     res.send({ user: result, msg: "users is found suscessfully" });
   } catch (error) {
     console.log(error);
@@ -167,10 +166,10 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE by id
-router.delete("/:id", async (req, res) => {
+router.delete("/deleteuser/:id", async (req, res) => {
   try {
-    let result = await User.findByIdAndDelete({ _id: req.params.id });
-    res.send({ msg: "contact is removed" });
+    let result = await User.findByIdAndDelete({_id:req.params.id});
+    res.send({ msg: "user deleted succesfuly" });
   } catch (error) {
     console.log(error);
   }

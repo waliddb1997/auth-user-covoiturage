@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Add a new Trajet
+//**********user add trajet ***********************
 
 export const userTrajet = createAsyncThunk(
   "trajet/addTrajet",
@@ -18,7 +18,7 @@ export const userTrajet = createAsyncThunk(
     }
   }
 );
-
+//**********user get trajet ***********************
 export const getTrajet = createAsyncThunk("trajet/getTrajet", async () => {
   try {
     let result = await axios.get("http://localhost:5000/trajet/getTrajet", {
@@ -29,6 +29,8 @@ export const getTrajet = createAsyncThunk("trajet/getTrajet", async () => {
     console.log(error);
   }
 });
+
+//********** get all trajet ***********************
 export const getallTrajet = createAsyncThunk(
   "trajet/getallTrajet",
   async (filterObject) => {
@@ -45,17 +47,29 @@ export const getallTrajet = createAsyncThunk(
   }
 );
 
+//********** deletttte  trajet ***********************
+export const deleteTrajetUser = createAsyncThunk("trajet/deleteTrajet", async (id) => {
+  try {
+    let result =  await axios.delete(`http://localhost:5000/trajet/deleteTrajet/${id}`);
+    return await result.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
 const initialState = {
   allTrajet: [],
   trajet: null,
-  status: null,
+  status: null,  
 };
+
 
 export const TrajetSlice = createSlice({
   name: "trajet",
   initialState,
   reducers: {},
   extraReducers: {
+
+    //**********user add trajet ***********************
     [userTrajet.pending]: (state) => {
       state.status = "pending";
     },
@@ -69,6 +83,8 @@ export const TrajetSlice = createSlice({
       state.status = "fail";
     },
 
+
+    //**********user get trajet ***********************
     [getTrajet.pending]: (state) => {
       state.status = "pending";
     },
@@ -79,6 +95,9 @@ export const TrajetSlice = createSlice({
     [getTrajet.rejected]: (state) => {
       state.status = "fail";
     },
+
+
+    //********** get all trajet ***********************
     [getallTrajet.pending]: (state) => {
       state.status = "pending";
     },
@@ -89,6 +108,20 @@ export const TrajetSlice = createSlice({
     [getallTrajet.rejected]: (state) => {
       state.status = "fail";
     },
+
+     //**********  delete trajet ***********************
+     [deleteTrajetUser.pending]: (state) => {
+      state.status = "pending";
+    },
+    [deleteTrajetUser.fulfilled]: (state, action) => {
+      state.status = "success";
+      // state.trajet = action.payload?.trajet;
+    },
+    [deleteTrajetUser.rejected]: (state) => {
+      state.status = "fail";
+    },
+
+
   },
 });
 

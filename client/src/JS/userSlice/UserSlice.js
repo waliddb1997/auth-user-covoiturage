@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-//
+//**********register user***********************
 export const userRegister = createAsyncThunk("user/register", async (user) => {
   try {
     let response = await axios.post(
@@ -14,6 +14,8 @@ export const userRegister = createAsyncThunk("user/register", async (user) => {
   }
 });
 
+
+//**********login user***********************
 export const userLogin = createAsyncThunk("user/login", async (user) => {
   try {
     let response = await axios.post("http://localhost:5000/user/login", user);
@@ -23,6 +25,7 @@ export const userLogin = createAsyncThunk("user/login", async (user) => {
   }
 });
 
+//**********user current ***********************
 export const userCurrent = createAsyncThunk("user/current", async () => {
   try {
     let response = await axios.get("http://localhost:5000/user/current", {
@@ -35,7 +38,7 @@ export const userCurrent = createAsyncThunk("user/current", async () => {
   }
 });
 
-//up Date User
+//**********UPdate user***********************
 export const edituser = createAsyncThunk("user/edit", async ({ id, user }) => {
   try {
     let result = await axios.put(`http://localhost:5000/user/${id}`, user);
@@ -45,9 +48,32 @@ export const edituser = createAsyncThunk("user/edit", async ({ id, user }) => {
   }
 });
 
+
+//**********get all user***********************
+
+export const getAllUsers = createAsyncThunk("user/alluser", async () => {
+  try {
+    let result = await axios.get("http://localhost:5000/user/alluser");
+    return await result.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+//********** deletttte  userr ***********************
+export const deleteUser = createAsyncThunk("user/deleteuser", async (id) => {
+  try {
+    let result = await axios.delete(`http://localhost:5000/user/deleteuser/${id}`);
+    return await result.data; 
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const initialState = {
   user: null,
   status: null,
+  users: [],
 };
 
 export const UserSlice = createSlice({
@@ -60,6 +86,8 @@ export const UserSlice = createSlice({
     },
   },
   extraReducers: {
+
+    //**********register user***********************
     [userRegister.pending]: (state) => {
       state.status = "pending";
     },
@@ -72,6 +100,8 @@ export const UserSlice = createSlice({
       state.status = "fail";
     },
 
+
+    //**********login user***********************
     [userLogin.pending]: (state) => {
       state.status = "pending";
     },
@@ -84,6 +114,8 @@ export const UserSlice = createSlice({
       state.status = "fail";
     },
 
+
+    //**********usercurrent ***********************
     [userCurrent.pending]: (state) => {
       state.status = "pending";
     },
@@ -95,6 +127,7 @@ export const UserSlice = createSlice({
       state.status = "fail";
     },
 
+    //**********update user***********************
     [edituser.pending]: (state) => {
       state.status = "pending";
     },
@@ -105,20 +138,32 @@ export const UserSlice = createSlice({
       state.status = "fail";
     },
 
-    //     increment: (state) => {
-    //       // Redux Toolkit allows us to write "mutating" logic in reducers. It
-    //       // doesn't actually mutate the state because it uses the Immer library,
-    //       // which detects changes to a "draft state" and produces a brand new
-    //       // immutable state based off those changes
-    //       state.value += 1
-    //     },
-    //     decrement: (state) => {
-    //       state.value -= 1
-    //     },
-    //     incrementByAmount: (state, action) => {
-    //       state.value += action.payload
-    //     },
-    //   },
+
+    //********** get All users ***********************
+    [getAllUsers.pending]: (state) => {
+      state.status = "pending";
+    },
+    [getAllUsers.fulfilled]: (state, action) => {
+      state.status = "success";
+      state.users = action.payload?.user;
+    },
+    [getAllUsers.rejected]: (state) => {
+      state.status = "fail";
+    },
+
+    
+     //**********  delete user ***********************
+     [deleteUser.pending]: (state) => {
+      state.status = "pending";
+    },
+    [deleteUser.fulfilled]: (state, action) => {
+      state.status = "success";
+      // state.trajet = action.payload?.trajet;
+    },
+    [deleteUser.rejected]: (state) => {
+      state.status = "fail";
+    },
+
   },
 });
 

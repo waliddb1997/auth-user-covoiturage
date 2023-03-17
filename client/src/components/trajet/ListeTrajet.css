@@ -1,12 +1,117 @@
 .trajet-list{
+    
+    /* gap: 30px; */
     margin-top: 100px;
-    width: 100vw;
-    height: 120vh;
-    background-color: aqua;
+    width: 99vw;
+    /* margin-inline: auto; */
+    /* height: 120vh; */
+    /* margin: auto; */
+    /* background-color: aqua; */
+    display: flex;
+    flex-wrap: wrap;
+   
 }
+    
 
 
-.trajet-list h1{
+
+
+/* .trajet-list h1{
     padding-top: 70px;
 color: red;
-}
+} */
+
+
+
+.social-links li {
+    list-style-type: none;
+  }
+  
+  .social-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .containerr {
+    /* width: 90%;
+    height: auto; */
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    column-gap: 25px;
+    row-gap: 40px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .containerr .card {
+    width: 350px;
+    height: 400px;
+    color: #fff;
+    text-align: center;
+    /* border: 4px solid #fff; */
+    border-radius: 18px;
+
+
+
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url(https://as2.ftcdn.net/v2/jpg/02/66/18/17/1000_F_266181783_vb2wLESbBcJavxjZ8qU9dbNJOxuiXrfI.jpg);
+      background-position: center;
+      background-size: cover;
+      transition: all 0.8s;
+      /* object-fit: cover !important;; */
+  }
+  
+  .containerr .card:hover {
+    border-color: #ff0000;
+    transform: translateY(-30px);
+  }
+  
+  .containerr .card-head {
+    padding: 10px;
+  }
+
+  .containerr .card-head span{
+    color: red;
+  }
+  
+  .containerr .card-head > h3 {
+    margin-top: 5px;
+  }
+  
+  hr {
+    margin: 0 15px;
+  }
+  
+  .containerr .card-body {
+    padding: 20px;
+    text-indent: 20px;
+    text-align: justify;
+  }
+  
+  .containerr .card-body > p:nth-child(2) {
+      margin-top: 5px;
+  }
+  
+  .containerr .social-links {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+  }
+  
+  .containerr .social-links > li > a {
+    padding: 5px 8px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: #000;
+    transition: all 0.8s;
+  }
+  
+  .containerr .social-links> li > a:hover {
+      border-color: #ff0000;
+      color: #000;
+      background-color: #fff;
+  } 

@@ -31,57 +31,14 @@ const Navbar = () => {
           </li>
 
           <div className="right">
-            {/* <div className="header-user">
-                <button
-                  onClick={() => handleOpen()}
-                  aria-label="Se connecter"
-                  aria-controls="connect-menu"
-                  aria-expanded="false"
-                  type="button"
-                >
-                  <div className="user-boton">
-                    <img className="user-boton" src="user.png" alt="immg" />
-                  </div>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="kirk-icon sc-ksBlkl gnWmNh"
-                    width="30"
-                    height="30"
-                    aria-hidden="true"
-                  >
-                    <polyline
-                      fill="none"
-                      stroke="hsl(170,46%,51.4%)"
-                      stroke-width="5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-miterlimit="50"
-                      points="9 18 15 12 9 6"
-                      transform="rotate(90 12 12)"
-                    ></polyline>
-                  </svg>
-                  {open ? (
-                    <div className="dropdown">
-                      <Link to="/register" className="link">
-                        sign Up{" "}
-                      </Link>
-                      <Link to="/login" className="link">
-                        Login{" "}
-                      </Link>
-                    </div>
-                  ) : null}
-                </button>
-              </div> */}
+          
             {
               user?.Role == "admin" ? (
                 <>
                   <li>
                     <Link to="/profil"> Profil</Link>
                   </li>
-                  {/* <li>
-                  <Link to="/addTrajet"> add trajet</Link>
-                </li> */}
+                 
                   <li>
                     <Link to="/Dashbord"> Dashbord</Link>
                   </li>
@@ -99,7 +56,7 @@ const Navbar = () => {
                   </li>
                 </>
               ) : null
-              //  navigate("/")
+             
             }
             {user?.Role == "user"? (
               <>

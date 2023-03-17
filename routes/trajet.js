@@ -47,7 +47,7 @@ router.post("/getAllTrajet", async (req, res) => {
 
 // delete trajet of user
 
-router.delete("/deleteTrajet/:id", isAuth(), async (req, res) => {
+router.delete("/deleteTrajet/:id",  async (req, res) => {
   try {
     let result = await Trajet.findByIdAndDelete(req.params.id);
     res.send({ trajet: result, msg: "trajet are deleted suscessfully" });
@@ -62,8 +62,8 @@ router.delete("/deletetrajetss", async (req, res) => {
     let result = await Trajet.deleteMany();
     return res.send({ msg: "tajetss is deleted suscessfully" });
   } catch (error) {
-    console.log(error);
+    console.log(error); 
   }
 });
 
-module.exports = router;
+module.exports = router; 

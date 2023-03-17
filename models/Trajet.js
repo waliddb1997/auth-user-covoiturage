@@ -13,15 +13,15 @@ const trajetSchema = new schema({
   },
   date:{
       type:Date,
-      // required:true,
+      required:true,
   },
   heure:{
       type:String,
-      // required:true,
+      required:true,
   },
   phone:{
       type:Number,
-      // required:true,
+      required:true,
   },
   voiture:{
     type:String,
@@ -29,12 +29,12 @@ const trajetSchema = new schema({
 
   nbPlace:{
       type:Number,
-      // required:true,
+      required:true,
    },
 
   prix:{
       type:String,
-      // required:true,
+      required:true,
 
    },
   clientId: {

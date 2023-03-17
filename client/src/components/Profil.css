@@ -55,20 +55,10 @@
 
 
 
-.modif-prof{
-    
-    font-size: 25px;
-    padding-left: 15cm;
-}
 
 
-.modif-prof button #modif{
-    /* background-color: red;  */
-    color: black;
-        transition-duration: 0.4s;
-      
-    /* background-color: red; */
-}
+
+
 
 .modif-prof button:hover {
     
@@ -83,3 +73,26 @@
 height: 6cm;
 width: 59vw;
 }
+
+
+.container-profil span{
+
+    color: #428bca;
+
+}
+
+
+.modif-prof button {
+    margin-left: 3cm;
+    padding: 5px 8px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: #2bc48a;
+    transition: all 0.8s;
+  }
+  
+  .modif-prof button {
+      border-color: #2bc48a;
+      color: #000;
+      /* background-color: #fff; */
+  } 
